@@ -8,20 +8,20 @@
           <option name="fileUrl" value="file://$PROJECT_DIR$/README.md" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="96" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/muduo/base/CurrentThread.h" />
-        </OpenedFileInfo>
-        <OpenedFileInfo>
-          <option name="caretOffset" value="0" />
+          <option name="caretOffset" value="133" />
           <option name="fileUrl" value="file://$PROJECT_DIR$/muduo/base/copyable.h" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="53" />
+          <option name="caretOffset" value="185" />
           <option name="fileUrl" value="file://$PROJECT_DIR$/muduo/base/CurrentThread.cc" />
         </OpenedFileInfo>
         <OpenedFileInfo>
           <option name="caretOffset" value="0" />
           <option name="fileUrl" value="file:///usr/include/pthread.h" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="119" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/muduo/base/Mutex.h" />
         </OpenedFileInfo>
         <OpenedFileInfo>
           <option name="caretOffset" value="303" />
@@ -32,16 +32,12 @@
           <option name="fileUrl" value="file:///usr/include/sys/cdefs.h" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="0" />
-          <option name="fileUrl" value="file://$USER_HOME$/gcc-8.2.0/include/c++/8.2.0/cxxabi.h" />
-        </OpenedFileInfo>
-        <OpenedFileInfo>
           <option name="caretOffset" value="1403" />
           <option name="fileUrl" value="file:///usr/include/sched.h" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="3453" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/muduo/base/Mutex.h" />
+          <option name="caretOffset" value="1060" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/muduo/base/CurrentThread.h" />
         </OpenedFileInfo>
       </list>
     </option>
