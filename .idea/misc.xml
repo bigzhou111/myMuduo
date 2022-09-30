@@ -24,6 +24,10 @@
           <option name="fileUrl" value="file:///usr/include/pthread.h" />
         </OpenedFileInfo>
         <OpenedFileInfo>
+          <option name="caretOffset" value="114" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/muduo/base/CountDownLatch.h" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
           <option name="caretOffset" value="681" />
           <option name="fileUrl" value="file://$PROJECT_DIR$/muduo/base/Condition.cpp" />
         </OpenedFileInfo>
@@ -40,8 +44,8 @@
           <option name="fileUrl" value="file:///usr/include/time.h" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="114" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/muduo/base/CountDownLatch.h" />
+          <option name="caretOffset" value="0" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/.gitignore" />
         </OpenedFileInfo>
       </list>
     </option>
