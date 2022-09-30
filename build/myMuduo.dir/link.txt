@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11    CMakeFiles/../myMuduo.dir/main.o  -o ../myMuduo  -L/usr/local/lib,  -L../myMuduo -rdynamic 

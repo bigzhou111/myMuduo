@@ -1,8 +1,8 @@
 #ifndef MUDUO_BASE_MUTEX_H
 #define MUDUO_BASE_MUTEX_H
 
-#include "muduo/base/CurrentThread.h"
-#include "muduo/base/noncopyable.h"
+#include "CurrentThread.h"
+#include "noncopyable.h"
 #include <assert.h>
 #include <pthread.h>
 
@@ -91,7 +91,37 @@ __END_DECLS
 
 namespace muduo{
 
-    class CAPABILITY("mutex") Mutexock : noncopyable {
+    class CAPABILITY("mutex") MutexLock : noncopyable {
+    public:
+        MutexLock() : holder_(0) {
+            MCHECK(pthread_mutex_init(&mutex_, NULL));
+        }
+        ~MutexLock() {
+            assert(holder_ == 0);
+            MCHECK(pthread_mutex_destroy(&mutex_));
+        }
+
+        bool isLockedByThisThread() const {
+            return holder_ == CurrentThread::tid();
+        }
+
+        void assertLocked() const ASSERT_CAPABILITY(this) {
+            assert(isLockedByThisThread());
+        }
+
+        void lock() ACQUIRE() {
+            MCHECK(pthread_mutex_lock(&mutex_));
+            assignHolder();
+        }
+
+        void unlock() RELEASE() {
+            unassignHolder();
+            MCHECK(pthread_mutex_unlock(&mutex_));
+        }
+
+        pthread_mutex_t* getPthreadMutex() {
+            return &mutex_;
+        }
     private:
         friend class Condition;
         class UnassignGuard : noncopyable {
@@ -102,19 +132,38 @@ namespace muduo{
             ~UnassignGuard() {
                 owner_.assignHolder();
             }
+
         private:
-            Mutexock& owner_;
+            MuteLock& owner_;
         };
+        void unassignHolder() {
+            holder_ = 0;
+        }
+        void assignHolder() {
+            holder_ = CurrentThread::tid();
+        }
+        pthread_mutex_t mutex_;
+        pid_t holder_;
     };
-    void unassignHolder() {
-        holder_ = 0;
-    }
-    void assignHolder() {
-        holder_ = CurrentThread::tid();
-    }
-    pthread_mutex_t mutex_;
-    pid_t holder_;
-    
+
+    class SCOPED_CAPABILITY MuteLockGuard : noncopyable {
+    public:
+        explicit MutexLockGuard(MuteLock& mutex) ACQUIRE(mutex) : mutex_(mutex) {
+            mutex_.lock();
+        }
+
+        ~MuteLockGuard() RELEASE() {
+            mutex_.unlock();
+        }
+    private:
+        MutexLock& mutex_;
+    };
+
 }
+
+// Prevent misuse like:
+// MutexLockGuard(mutex_);
+// A tempory object doesn't hold the lock for long!
+#define MutexLockGuard(x) error "Missing guard object name"
 
 #endif  // MUDUO_BASE_MUTEX_H
