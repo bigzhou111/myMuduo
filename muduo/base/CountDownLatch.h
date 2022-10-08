@@ -1,7 +1,16 @@
-#ifndef MUDUO_BASE_COUNTDOWNLATCH_H
-#define MUDUO_BASE_COUNTDOWNLATCH_H
+//
+// Created by root on 9/30/22.
+//
 
-#include "Condition.h"
-#include "Mutex.h"
+#ifndef MYMUDUO_COUNTDOWNLATCH_H
+#define MYMUDUO_COUNTDOWNLATCH_H
 
-#endif  // MUDUO_BASE_COUNTDOWNLATCH_H
+
+
+class CountDownLatch {
+
+};
+
+
+
+#endif //MYMUDUO_COUNTDOWNLATCH_H
